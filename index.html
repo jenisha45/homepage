@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otter Gift Surprise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- for login -->
+    <div class="box" id="loginBox">
+        <h2>🔐 Enter Password</h2>
+        <input type="password" id="pass" placeholder="Type here...">
+        <br>
+        <button onclick="checkPass()">Unlock 🎂</button>
+        <div class="error" id="error"></div>
+    </div>
+    <!-- FIRST SCREEN -->
+
+    <div class="gift-container" id="homePage">
+
+        <h2>Choose your birthday gift 🎁</h2>
+
+        <div class="otter-background">
+
+            <div class="gift-item">
+                <img src="otter1.png">
+                <button onclick="openGallery()">
+                    Open Gift
+                </button>
+            </div>
+
+            <div class="gift-item">
+                <img src="otter22.png">
+
+                <button onclick="openSecondGift()">
+                    Open Gift
+                </button>
+            </div>
+
+            <div class="gift-item">
+                <img src="otter3.png">
+                <button onclick="openThirdGift()">
+                    Open Gift
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- GALLERY SCREEN -->
+
+    <div class="gallery-page" id="galleryPage">
+
+        <h1>💖 Memory Collection 💖</h1>
+
+        <div class="gallery">
+
+            <img src="1.jpg">
+            <img src="9.png">
+            <img src="3.jpg">
+            <img src="4.jpg">
+            <img src="5.jpg">
+            <img src="6.jpg">
+            <img src="7.png">
+            <img src="8.png">
+            <img src="9.png">
+            <img src="2.jpg">
+
+        </div>
+        <button onclick="goHome()" class="back-btn">
+            ⬅ Back to Gifts
+        </button>
+
+    </div>
+
+    <script>
+        function checkPass() {
+            let input = document.getElementById("pass").value;
+
+            let correct = "cutie123";  // 💖 change password here
+
+            if (input === correct) {
+                document.getElementById("loginBox").style.display = "none";
+                document.getElementById("homePage").style.display = "flex";
+            } else {
+                document.getElementById("error").innerText = "Wrong password 😭 try again!";
+            }
+        }
+        function openGallery() {
+
+            document.getElementById("homePage")
+                .style.display = "none";
+
+            document.getElementById("galleryPage")
+                .style.display = "block";
+        }
+        function openSecondGift() {
+            window.location.href = "../otter2gift/index.html";
+        }
+        function openThirdGift() {
+            window.location.href = "../otter3gift/index.html";
+        }
+        function goHome() {
+            document.getElementById("galleryPage")
+                .style.display = "none";
+
+            document.getElementById("homePage")
+                .style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>

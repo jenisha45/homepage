@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Cake</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(#ffe6f0, #fff);
+    font-family: Arial;
+}
+
+/* cake wrapper */
+.cake{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+}
+
+/* candle */
+.candle{
+    width:10px;
+    height:45px;
+    background:#fff;
+    border-radius:3px;
+    position:relative;
+    margin-bottom:5px;
+}
+
+.flame{
+    width:12px;
+    height:12px;
+    background:orange;
+    border-radius:50%;
+    position:absolute;
+    top:-12px;
+    left:-1px;
+    animation:flicker .3s infinite alternate;
+}
+
+@keyframes flicker{
+    from{transform:scale(1); opacity:.7;}
+    to{transform:scale(1.3); opacity:1;}
+}
+
+/* layers */
+.layer{
+    position:relative;
+    border-radius:15px;
+}
+
+/* top */
+.layer1{
+    width:180px;
+    height:60px;
+    background:#ff9aa2;
+}
+
+/* middle */
+.layer2{
+    width:220px;
+    height:60px;
+    background:#ffb7b2;
+}
+
+/* bottom */
+.layer3{
+    width:260px;
+    height:70px;
+    background:#ffdac1;
+}
+
+/* icing drip */
+.layer::before{
+    content:"";
+    position:absolute;
+    top:-10px;
+    left:0;
+    width:100%;
+    height:20px;
+    background:rgba(255,255,255,0.7);
+    border-radius:50px;
+}
+
+/* sprinkles */
+.sprinkle{
+    position:absolute;
+    width:6px;
+    height:3px;
+    background:hotpink;
+    border-radius:2px;
+}
+
+.layer1 .sprinkle{ top:20px; left:40px; }
+.layer1 .sprinkle:nth-child(2){ left:90px; background:yellow; }
+.layer1 .sprinkle:nth-child(3){ left:130px; background:deepskyblue; }
+
+/* click message */
+.message{
+    margin-top:20px;
+    padding:10px 20px;
+    background:#ff6fa5;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.3s;
+    user-select:none;
+}
+
+.message:hover{
+    transform:scale(1.1);
+    background:#ff3f86;
+}
+
+/* hidden popup */
+.popup{
+    display:none;
+    margin-top:10px;
+    color:#ff3f86;
+    font-weight:bold;
+}
+.back-btn {
+    margin-top: 15px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ff9aa2, #ff6fa5);
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    
+    /* hidden at first */
+    display: none;
+
+    /* slight side cute positioning */
+    transform: translateX(40px);
+}
+
+.back-btn:hover {
+    transform: translateX(40px) scale(1.08);
+    background: linear-gradient(135deg, #ff6fa5, #ff3f86);
+}
+</style>
+</head>
+
+<body>
+
+<div class="cake">
+
+    <div class="candle">
+        <div class="flame"></div>
+    </div>
+
+    <div class="layer layer1">
+        <div class="sprinkle"></div>
+        <div class="sprinkle"></div>
+        <div class="sprinkle"></div>
+    </div>
+
+    <div class="layer layer2"></div>
+    <div class="layer layer3"></div>
+
+    <div class="message" onclick="showMsg()">🎉 Click me 🎉</div>
+    <div class="popup" id="popup">Again Happy Birthday ji !! Eat lots, shine more, love yourself more 💖</div>
+<button onclick="goHome()" class="back-btn" id="backBtn">
+    ⬅ Back to Gifts
+</button>
+</div>
+
+
+<script>
+function showMsg(){
+    document.getElementById("popup").style.display = "block";
+    
+    // show back button after click
+    document.getElementById("backBtn").style.display = "inline-block";
+}
+
+function goHome() {
+    window.location.href = "../index.html";
+}
+</script>
+
+</body>
+</html>
