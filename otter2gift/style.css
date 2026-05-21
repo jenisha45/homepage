@@ -10,21 +10,16 @@
 
 :root {
     --color-pink: #F7F3EF;
-    /* soft warm background (light but not white) */
     --color-white: #FFFFFF;
 
     --color-black: #3F3A36;
-    /* readable warm dark text */
 
     --color-text-pink: #B07A6A;
-    /* soft warm accent (not too pink) */
     --color-heart: #D18B7A;
-    /* gentle peach accent */
+  
 
     --color-bg-letter: #FFF9F4;
-    /* clean paper-like card bg */
     --color-border: #E6DAD1;
-    /* soft warm border */
 }
 
 html {
@@ -1201,12 +1196,15 @@ body {
     z-index: 10000000000000000;
 }
 .back-btn {
+    margin-top: 30px;
+    margin-bottom: 25px;
+
     padding: 12px 20px;
 
     border: none;
     border-radius: 10px;
 
-    background: #ab6550;
+    background: #f1c8bb;
     color: white;
 
     cursor: pointer;
@@ -1214,5 +1212,5 @@ body {
 }
 
 .back-btn:hover {
-    background: #ff5c2b;
+    background: #d87b5e;
 }
